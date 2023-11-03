@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="users">
+        <item>Bob;Smith;0123123123</item>
+        <item>Jack;Nelson;0876543999</item>
+        <item>Alice;Smith;098765421</item>
+        <item>0123123123;Smith;Bob</item>
+    </string-array>
+</resources>

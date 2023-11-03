@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Assignment6</string>
+    <string name="tw_select_user_txt">Select A User</string>
+    <string name="hint_select_user">Type One Or More Letters</string>
+    <string name="test_txt">test</string>
+    <string name="hint_firstname">First Name</string>
+    <string name="hint_lastname">Last Name</string>
+    <string name="hint_phonenumber">Phone Number</string>
+    <string name="button_submit">Submit</string>
+</resources>
