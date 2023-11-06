@@ -2,6 +2,7 @@ package nm.vamk.assignment6;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
     EditText firstNameEditText;
     EditText lastNameEditText;
     EditText phoneNumberEditText;
+
+    AutoCompleteTextView autoCompleteTextViewFirstName;
+
+    ArrayAdapter<User> arrayAdapter;
 
     Button submitButton;
 
@@ -37,32 +42,78 @@ public class MainActivity extends AppCompatActivity {
         submitButton = findViewById(R.id.button_submit);
         submitButton.setOnClickListener(ButtonClickListener);
 
+        setupArrayAdapter();
+
         //Here we read the content of users array from array.xml file
         //String[] users = getResources().getStringArray(R.array.users);
 
-        //Here we define an array adapter with a style and a content list
-        ArrayAdapter<User> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, UserDB.getUsersList());
 
-        //Here we define the AutoCompleteTextView object
-        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.auto_complete_tw_user);
-        //Here we define the required number of letters to be typed in the AutoCompleteTextView
-        autoCompleteTextView.setThreshold(1);
 
-        //Here we set the array adapter for the AutoCompleteTextView
-        autoCompleteTextView.setAdapter(arrayAdapter);
+
+        //AutoCompleteTextView autoCompleteTextViewLastName = findViewById(R.id.auto_complete_tw_lastName);
+
+
+        //autoCompleteTextViewLastName.setThreshold(1);
+
+
+        //autoCompleteTextViewLastName.setAdapter(arrayAdapter);
 
         //Here we define ItemClickListener for the AutoCompleteTextView instance
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        /*
+        autoCompleteTextViewFirstName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //Here we get a copy of the text searched from the AutocompleteTextView and then modify it
-                String text = autoCompleteTextView.getText().toString().replace(";", getResources().getString(R.string.test_txt));
+                String text = autoCompleteTextViewFirstName.getText().toString().replace(";", getResources().getString(R.string.test_txt));
 
                 //Here we set the text of the AutocompleteTextView to the modified text
-                autoCompleteTextView.setText(text);
+                autoCompleteTextViewFirstName.setText(text);
             }
         });
+*/
+        /*
+        autoCompleteTextViewLastName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Here we get a copy of the text searched from the AutocompleteTextView and then modify it
+                String text = autoCompleteTextViewLastName.getText().toString().replace(";", getResources().getString(R.string.test2_txt));
+
+                //Here we set the text of the AutocompleteTextView to the modified text
+                autoCompleteTextViewLastName.setText(text);
+            }
+        });
+
+         */
     }
+
+    public void setupArrayAdapter() {
+        //Here we define an array adapter with a style and a content list
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, UserDB.getUsersList());
+
+        //Here we define the AutoCompleteTextView object
+        autoCompleteTextViewFirstName = findViewById(R.id.auto_complete_tw_firstName);
+
+        //Here we define the required number of letters to be typed in the AutoCompleteTextView
+        autoCompleteTextViewFirstName.setThreshold(1);
+
+        //Here we set the array adapter for the AutoCompleteTextView
+        autoCompleteTextViewFirstName.setAdapter(arrayAdapter);
+
+        autoCompleteTextViewFirstName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Here we get a copy of the text searched from the AutocompleteTextView and then modify it
+                String text = autoCompleteTextViewFirstName.getText().toString().replace(";", getResources().getString(R.string.test_txt));
+
+                //Here we set the text of the AutocompleteTextView to the modified text
+                autoCompleteTextViewFirstName.setText(text);
+            }
+        });
+
+
+    }
+
 
     private View.OnClickListener ButtonClickListener = new View.OnClickListener() {
         @Override
@@ -98,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!firstName.isEmpty() && !lastName.isEmpty() && !phoneNumber.isEmpty()) {
                     UserDB.addNewUserToDatabase(firstName, lastName, phoneNumber);
+                    setupArrayAdapter();
                 }
 
 
@@ -106,4 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+
+
 }

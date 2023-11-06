@@ -51,19 +51,27 @@
         android:id="@+id/tw_select_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tw_select_user_txt"
+        android:text="@string/tw_search_user_txt"
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_submit" />
 
     <AutoCompleteTextView
-        android:id="@+id/auto_complete_tw_user"
+        android:id="@+id/auto_complete_tw_firstName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tw_select_user"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/hint_select_user"
-        android:padding="15dp"
-        />
+        android:hint="@string/hint_autoComplete_firstName"
+        android:padding="15dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/auto_complete_tw_lastName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/auto_complete_tw_firstName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/hint_autoComplete_lastName"
+        android:padding="15dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
