@@ -2,11 +2,12 @@
     <string name="app_name">Assignment6</string>
     <string name="tw_search_user_txt">Search User</string>
     <string name="hint_autoComplete_firstName">Search By First Name</string>
-    <string name="test_txt">test</string>
+    <string name="test_txt">-</string>
     <string name="hint_firstname">First Name</string>
     <string name="hint_lastname">Last Name</string>
     <string name="hint_phonenumber">Phone Number</string>
     <string name="button_submit">Submit</string>
     <string name="hint_autoComplete_lastName">Search By Last Name</string>
-    <string name="test2_txt">HAH</string>
+    <string name="hint_autoComplete_phoneNumber">Search By Phone Number</string>
+    <string name="tw_search_result_txt">Search Result:</string>
 </resources>

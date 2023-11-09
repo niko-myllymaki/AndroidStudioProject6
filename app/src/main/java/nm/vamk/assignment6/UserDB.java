@@ -17,18 +17,30 @@ public class UserDB {
         return usersList;
     }
 
-    /*
-    public static String[] getUsersStringArray() {
-        String[] usersStringArray = null;
-        String userTemp = null;
-        for(User user : usersList) {
-            userTemp = user.toString();
-            usersStringArray.
+    public static List<User> getUsersByAttribute(String attributeToSearch) {
+        List<User> usersByAttribute = new ArrayList<>();
+        User userTemp = null;
+
+        for(User user: usersList) {
+            if(user.getFirstName().contains(attributeToSearch)) {
+                userTemp = user;
+                usersByAttribute.add(userTemp);
+            }
+
+            if(user.getLastName().contains(attributeToSearch)) {
+                userTemp = user;
+                usersByAttribute.add(userTemp);
+            }
+
+            if(user.getPhoneNumber().contains(attributeToSearch)) {
+                userTemp = user;
+                usersByAttribute.add(userTemp);
+            }
+
         }
 
-        return usersStringArray;
+        return usersByAttribute;
     }
-     */
 
     public static void addNewUserToDatabase(String firstName, String lastName, String phoneNumber) {
         usersList.add(new User(firstName, lastName, phoneNumber));

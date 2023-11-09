@@ -56,6 +56,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_submit" />
 
+    <TextView
+        android:id="@+id/tw_search_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tw_search_result_txt"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auto_complete_tw_phoneNumber" />
+
+    <TextView
+        android:id="@+id/tw_search_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tw_search_result_title" />
+
     <AutoCompleteTextView
         android:id="@+id/auto_complete_tw_firstName"
         android:layout_width="fill_parent"
@@ -72,6 +89,15 @@
         app:layout_constraintTop_toBottomOf="@+id/auto_complete_tw_firstName"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="@string/hint_autoComplete_lastName"
+        android:padding="15dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/auto_complete_tw_phoneNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/auto_complete_tw_lastName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/hint_autoComplete_phoneNumber"
         android:padding="15dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
